@@ -4,16 +4,41 @@ import queue
 
 print(sd.query_devices())
 
-# Use device 9 (WASAPI) but query its native sample rate
-DEVICE_INDEX = 9
-device_info = sd.query_devices(DEVICE_INDEX, 'input')
-DEVICE_SAMPLE_RATE = int(device_info['default_samplerate'])  # likely 44100 or 48000
-WHISPER_SAMPLE_RATE = 16000  # Whisper always needs 16kHz
+WHISPER_SAMPLE_RATE = 16000
 
-print(f"Device sample rate: {DEVICE_SAMPLE_RATE}")
+# Device preference order — tries each one until one works
+# MME (1) is most compatible on Windows, DirectSound (5) is next
+PREFERRED_DEVICES = [1, 5, 9]
 
-CHUNK_DURATION = 1.0  # seconds
-CHUNK_SIZE = int(DEVICE_SAMPLE_RATE * CHUNK_DURATION)
+def find_working_device():
+    """Try each preferred device and return the first one that opens successfully."""
+    for device_index in PREFERRED_DEVICES:
+        try:
+            device_info = sd.query_devices(device_index, 'input')
+            sample_rate = int(device_info['default_samplerate'])
+
+            # Try opening a test stream to confirm it works
+            test_stream = sd.InputStream(
+                samplerate=sample_rate,
+                channels=1,
+                dtype='float32',
+                device=device_index,
+                blocksize=int(sample_rate * 1.0)
+            )
+            test_stream.close()
+
+            print(f"Using device {device_index}: {device_info['name']} @ {sample_rate}Hz")
+            return device_index, sample_rate
+
+        except Exception as e:
+            print(f"Device {device_index} failed: {e}")
+            continue
+
+    raise RuntimeError("No working input device found. Check your microphone connections.")
+
+
+DEVICE_INDEX, DEVICE_SAMPLE_RATE = find_working_device()
+CHUNK_SIZE = int(DEVICE_SAMPLE_RATE * 1.0)  # 1 second chunks
 
 audio_queue = queue.Queue()
 
