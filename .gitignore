@@ -1,0 +1,22 @@
+# Virtual Environment
+whisper_env/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Torch / ML large files
+*.dll
+*.lib
+*.bin
+*.pt
+*.pth
+
+# Other common ignores
+.env
+*.log
+.DS_Store
