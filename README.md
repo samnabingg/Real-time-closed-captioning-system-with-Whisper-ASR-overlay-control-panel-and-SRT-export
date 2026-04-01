@@ -97,4 +97,4 @@ python whisper_worker.py
 
 ## Test Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/watch?v=n1JCyEHqI-M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch the video](https://img.youtube.com/vi/n1JCyEHqI-M/0.jpg)](https://www.youtube.com/watch?v=n1JCyEHqI-M)
