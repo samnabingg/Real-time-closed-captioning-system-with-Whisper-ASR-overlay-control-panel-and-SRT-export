@@ -27,14 +27,14 @@ from audio_streaming import (
 from srt_exporter import SRTExporter
 
 # Set to True to see detailed pipeline decisions, False for clean output
-DIAGNOSTIC_MODE = True
+DIAGNOSTIC_MODE = False  # Set True for debug
 
 # --- Load faster-whisper model ---
 COMPUTE_TYPE = "float16" if torch.cuda.is_available() else "int8"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-print(f"[Whisper] Loading faster-whisper 'small' model on {DEVICE} ({COMPUTE_TYPE})...")
-model = WhisperModel("small", device=DEVICE, compute_type=COMPUTE_TYPE)
+print(f"[Whisper] Loading faster-whisper 'tiny' model on {DEVICE} ({COMPUTE_TYPE})... [Real-time optimized]")
+model = WhisperModel("tiny", device=DEVICE, compute_type=COMPUTE_TYPE)
 print("[Whisper] Model loaded.")
 
 # --- Load silero-VAD ---
@@ -42,13 +42,13 @@ print("[VAD] Loading silero-VAD...")
 vad_model = load_silero_vad()
 print("[VAD] VAD loaded.")
 
-# --- Tunable parameters ---
+# --- Tunable parameters (Latency-Optimized for 2-4s sweet spot) ---
 SILENCE_THRESHOLD   = 0.005
-MIN_SPEECH_SECONDS  = 0.3
-MAX_SEGMENT_SECONDS = 15
-VAD_THRESHOLD       = 0.3
-PADDING_SECONDS     = 0.5
-VAD_CHECK_INTERVAL  = 0.5   # Check every 500ms
+MIN_SPEECH_SECONDS  = 1.0  # Skip short fillers/uh
+MAX_SEGMENT_SECONDS = 6     # Slight increase for better context
+VAD_THRESHOLD       = 0.4   # Stricter for cleaner speech
+PADDING_SECONDS     = 0.3
+VAD_CHECK_INTERVAL  = 0.25   # Check every 250ms for faster detection
 
 
 def resample_to_16k(audio: np.ndarray, orig_sr: int, target_sr: int) -> np.ndarray:
@@ -68,7 +68,7 @@ def normalize_audio(audio: np.ndarray) -> np.ndarray:
 
 
 def is_hallucination(text: str) -> bool:
-    KNOWN = {"you", "thank you", "bye", "bye.", "you.", "thank you.", ""}
+    KNOWN = {"you", "thank you", "bye", "bye.", "you.", "thank you.", "", "hello", "hi", "um", "uh"}
     if text.lower().strip() in KNOWN:
         return True
     words = text.strip().split()
@@ -240,11 +240,11 @@ def vad_transcribe_worker(
                 segments_iter, info = model.transcribe(
                     speech_audio,
                     language=language,
-                    beam_size=5,
-                    best_of=5,
-                    temperature=0.0,
-                    condition_on_previous_text=False,
-                    vad_filter=False,
+                    beam_size=3,
+                    best_of=3,
+                    temperature=(0.0, 0.2),
+                    condition_on_previous_text=True,
+                    vad_filter=True,
                     word_timestamps=False,
                 )
                 text = " ".join(seg.text for seg in segments_iter).strip()

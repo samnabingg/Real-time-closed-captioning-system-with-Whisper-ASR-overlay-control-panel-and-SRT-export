@@ -1,0 +1,354 @@
+[2026-03-31 13:13:28] We don't have any voice, we're getting to the very end of the video that says that it's not...  Hello!
+[2026-03-31 13:13:34] This is a
+[2026-03-31 13:13:39] a test
+[2026-03-31 13:13:45] to see if my
+[2026-03-31 13:13:50] Program works fine
+[2026-03-31 13:14:00] I am speaking
+[2026-03-31 13:14:05] I'm going to be speak
+[2026-03-31 13:14:11] Hello, my name is Samana the Hala and I am currently testing my software that is  Able to detect I'm using faster whisper
+[2026-03-31 13:14:16] Hello!
+[2026-03-31 13:14:21] Hello!
+[2026-03-31 13:14:26] I am trying to
+[2026-03-31 13:14:31] test
+[2026-03-31 13:14:36] If
+[2026-03-31 13:14:44] Okay, this the text
+[2026-03-31 13:14:50] things properly
+[2026-03-31 13:14:56] but
+[2026-03-31 13:15:02] It shows...
+[2026-03-31 13:15:08] The things to my screen a little bit late.
+[2026-03-31 13:15:16] So it takes about 20 seconds to show up my text and it randomly cuts text at random times.
+[2026-03-31 13:15:30] about 15 seconds
+[2026-03-31 13:15:37] light.
+[2026-03-31 13:15:44] but the accuracy is pretty good
+[2026-03-31 13:24:43] I see four of you
+[2026-03-31 13:24:49] Okay.
+[2026-03-31 13:24:53] Hello everybody, this is a test for...
+[2026-03-31 13:24:58] My
+[2026-03-31 13:25:04] Yeah.
+[2026-03-31 13:25:22] Hello?
+[2026-03-31 13:25:27] Okay, so the transcription happens a little late here.
+[2026-03-31 13:25:32] It did not show
+[2026-03-31 13:25:37] In the screen until like 10
+[2026-03-31 13:25:44] The transcription takes a little longer than expected. I don't want it to be so
+[2026-03-31 13:25:50] so the transcription is super
+[2026-03-31 21:19:26] Run Python!
+[2026-03-31 21:19:36] and one long sentence then paste the console output special latency.
+[2026-03-31 21:19:47] Do you deserve delays and issues?
+[2026-03-31 21:19:57] Hello, this is
+[2026-03-31 21:20:13] The latency...
+[2026-03-31 21:20:23] to find a way to shorten it
+[2026-03-31 21:20:38] And why is it...
+[2026-03-31 21:20:48] sentence.
+[2026-03-31 21:20:58] And, uh...
+[2026-03-31 21:21:08] and it's not showing the entire sentence
+[2026-03-31 21:22:57] So, I re-
+[2026-03-31 21:22:59] Please send me a switch at 2.3.
+[2026-03-31 21:23:02] So I recently switched it to tiny model in RS.
+[2026-03-31 21:23:04] T- uh... whisk.
+[2026-03-31 21:23:06] We spare work.
+[2026-03-31 21:23:08] Good luck with your good luck, bye!
+[2026-03-31 21:23:10] Which is must faster?
+[2026-03-31 21:23:12] must faster in defense, expect one, two, two, three, two, two, two, two.
+[2026-03-31 21:23:14] Stir in defence, expect one to two little seconds off.
+[2026-03-31 21:23:16] Latency versus...
+[2026-03-31 21:23:19] seconds but there are a lot of
+[2026-03-31 21:23:21] 10 seconds, but there are a lot of hallucinations.
+[2026-03-31 21:23:23] that I can see.
+[2026-03-31 21:23:25] Too very fine
+[2026-03-31 21:23:30] Run!
+[2026-03-31 21:23:32] มันตัวไป
+[2026-03-31 21:23:35] Too very fine.
+[2026-03-31 21:23:37] So
+[2026-03-31 21:23:40] With this model I can see there is quite a bit of...
+[2026-03-31 21:23:42] With this model I can see there is quite a bit of hallucination.
+[2026-03-31 21:23:44] With this model, I can see there is quite a bit of hallucination.
+[2026-03-31 21:23:46] Cheers, babe!
+[2026-03-31 21:23:48] So far.
+[2026-03-31 21:23:53] Hello.
+[2026-03-31 21:23:55] This is a real-time test.
+[2026-03-31 21:24:03] 是 now be real time
+[2026-03-31 21:24:08] It should not be real time.
+[2026-03-31 21:26:56] Hello, so this
+[2026-03-31 21:26:58] This is a tiny model.
+[2026-03-31 21:27:03] We worked on
+[2026-03-31 21:27:05] on the hallucination parts.
+[2026-03-31 21:27:08] It should have...
+[2026-03-31 21:27:10] uh... let's haluscious
+[2026-03-31 21:27:12] nations now.
+[2026-03-31 21:27:15] Now we run.
+[2026-03-31 21:27:18] main.py which is
+[2026-03-31 21:27:20] in the first captions.
+[2026-03-31 21:27:24] Why did the caption?
+[2026-03-31 21:27:26] and just uh...
+[2026-03-31 21:27:29] Go away so quick
+[2026-03-31 21:27:35] If still hallucinating
+[2026-03-31 21:27:37] language it goes in for
+[2026-03-31 21:27:39] besides one.
+[2026-03-31 21:27:50] 2,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2
+[2026-03-31 21:27:52] Let's see.
+[2026-03-31 21:27:57] This is definitely a...
+[2026-03-31 21:28:00] hallucination. We got to work on
+[2026-03-31 21:28:02] that.
+[2026-03-31 21:28:05] but overall
+[2026-03-31 21:28:07] This is way better than the old mod.
+[2026-03-31 21:28:24] Because I said thank you.
+[2026-03-31 21:28:26] This is not show, thank you any more, because thank you, is all.
+[2026-03-31 21:28:28] also considered.
+[2026-03-31 21:28:43] I'm going to speak about
+[2026-03-31 21:28:45] breath.
+[2026-03-31 21:28:51] A paragraph is...
+[2026-03-31 21:28:53] a group of related sentences.
+[2026-03-31 21:28:56] Please.
+[2026-03-31 21:28:58] Developing one central idea
+[2026-03-31 21:29:00] acting as a structural unit.
+[2026-03-31 21:29:04] to organize writing.
+[2026-03-31 21:29:09] key elements include
+[2026-03-31 21:29:11] topic sentence, which is the mainite.
+[2026-03-31 21:29:16] Supporting evidence?
+[2026-03-31 21:29:19] and a concluding sentence.
+[2026-03-31 21:29:25] E fã de pego!
+[2026-03-31 21:29:28] Afs are cohesiëf.
+[2026-03-31 21:29:31] Generally, 4-6 cents.
+[2026-03-31 21:29:33] and sis-law and improve.
+[2026-03-31 21:29:36] We debilitate.
+[2026-03-31 21:30:04] ถึงฟิ้มฝันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟันฟั
+[2026-03-31 21:30:06] I can buy this as well, for currently made a decent percent money to your account.
+[2026-03-31 21:30:08] It's easier than you think to manage your home cybersecurity.
+[2026-03-31 21:30:11] your constantly on the lookout for scams, identity, best and best.
+[2026-03-31 21:30:13] show threats, I have a solution for you.
+[2026-03-31 21:30:15] are constantly on the lookout for scams, identity theft, and digital threats.  I have a solution for you.  Whoever is a clap.
+[2026-03-31 21:30:17] I'm Vanessa from Speak English.
+[2026-03-31 21:30:20] Vanessa.com.  And today, I have a...
+[2026-03-31 21:30:22] from SpeakEnglishWakeVanessa.com.  And today I have a special guest, my husband.
+[2026-03-31 21:30:24] Oh, and today I have a special guest.  My husband, dad, no.  Hello.
+[2026-03-31 21:30:27] my husband there.  Hello.  Today, we are going to be having a more angry.
+[2026-03-31 21:30:29] So today we are going to be having a more English conversation.
+[2026-03-31 21:30:32] Over two years ago
+[2026-03-31 21:30:34] In February 2020, we made this call.
+[2026-03-31 21:30:36] years ago, back in February 2020, we made this conversation and millions of you.
+[2026-03-31 21:30:38] conversation, and millions of you loved this and said that it helped you to  understand.
+[2026-03-31 21:30:41] and millions of you loved this and said that it helped you to immerse yourself in English and have a fun talk.
+[2026-03-31 21:30:43] millions of you loved this and said that it helped you to immerse yourself in English and have a fun time.
+[2026-03-31 21:30:47] 10 possible.
+[2026-03-31 21:30:49] more topics, and we'll be...
+[2026-03-31 21:30:51] giving our opinions and...
+[2026-03-31 21:30:53] Stories and ideas.
+[2026-03-31 21:30:56] Yes, whatever comes up a lot.
+[2026-03-31 21:30:58] Stories and ideas, yes, whatever comes up along the way.
+[2026-03-31 21:31:04] but you can also click C
+[2026-03-31 21:31:06] See ya!
+[2026-03-31 21:31:08] to get the full subtitles so that you don't miss any.
+[2026-03-31 21:31:10] full subtitles so that you don't miss any words.  Alright, are you ready to get started?
+[2026-03-31 21:31:13] don't miss any words. All right, are you ready to get started? I'm ready. Let's do it.
+[2026-03-31 21:33:12] and I'm going to stop talking and see how this works.
+[2026-03-31 21:33:16] Hey, I'm Vanessa, I'm first.
+[2026-03-31 21:33:18] English with Vanessa.com, and today...
+[2026-03-31 21:33:20] have a special guest.
+[2026-03-31 21:33:22] Vanessa.com. And today I have a special guest. My husband died. Hello.
+[2026-03-31 21:33:24] special guest. My husband died. Hello. Today we are going to be having a war.
+[2026-03-31 21:33:27] Hello. Today we are going to be having a long English conversation.
+[2026-03-31 21:33:30] Over two years.
+[2026-03-31 21:33:33] go back in February 2020 we made this covers.
+[2026-03-31 21:33:35] ago. Back in February 2020 we made this conversation and millions of you love.
+[2026-03-31 21:33:37] They made this conversation and millions of you loved this and said that it helped you to immerse.
+[2026-03-31 21:33:40] millions of you loved this and said that it helped you to immerse yourself in English and have a fun time.
+[2026-03-31 21:33:42] helped you to immerse yourself at English and have a fun time. So today we're going to be doing something similar.
+[2026-03-31 21:33:45] self-ad English and have a fun time. So today we're going to be doing something similar, we'll be talking about.
+[2026-03-31 21:33:46] at least 10.
+[2026-03-31 21:33:48] and possibly one topic.
+[2026-03-31 21:33:50] And we'll be giving you
+[2026-03-31 21:33:52] Stories and idea
+[2026-03-31 21:33:55] Yes.  What happened?  Come back a long time ago.
+[2026-03-31 21:33:57] And idea is true.  Yes, whatever comes up along the way,  and then we'll be subtitles.
+[2026-03-31 21:33:59] like he faces down here.
+[2026-03-31 21:34:01] along the way and then we'll be subtitles for key phases down here.
+[2026-03-31 21:36:08] and I'm going to start
+[2026-03-31 21:36:11] I'm having this one as
+[2026-03-31 21:36:14] I mean, let's go.
+[2026-03-31 21:36:23] So
+[2026-03-31 21:36:28] Translution.
+[2026-03-31 21:36:31] Thank you very much.
+[2026-03-31 21:36:33] essentially it is
+[2026-03-31 21:36:38] Сомарьи
+[2026-03-31 21:36:43] can search in and read.
+[2026-03-31 21:36:45] of your English team.
+[2026-03-31 21:39:27] I'm Vanessa from S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S-S
+[2026-03-31 21:39:30] Thank you very much for listening to us again.
+[2026-03-31 21:39:31] That's the day I know it.
+[2026-03-31 21:39:37] Over two years ago
+[2026-03-31 21:39:39] I'm back in February 2020.
+[2026-03-31 21:39:46] 沒有見證,沒有見證
+[2026-03-31 21:39:48] Thank you so much for watching and I'll see you in the next video.
+[2026-03-31 21:39:51] to immerse yourself in English and have a friend to it.  So today we're going to be doing something similar, we'll be talking.
+[2026-03-31 21:39:56] That was the main topic.
+[2026-03-31 21:41:29] English
+[2026-03-31 21:41:32] Possibly more topics.
+[2026-03-31 21:41:40] Тихо, тихо, тихо.
+[2026-03-31 21:41:49] Please
+[2026-03-31 21:41:52] I don't know if you can see this.
+[2026-03-31 21:41:58] Смотри, мне не встать.
+[2026-03-31 21:43:00] Let's see how it goes.
+[2026-03-31 21:43:09] And today, I have...
+[2026-03-31 21:43:11] this.
+[2026-03-31 21:43:12] That's so good!
+[2026-03-31 21:43:15] My husband day.
+[2026-03-31 21:43:17] And whoo!
+[2026-03-31 21:43:21] I'm going to be having a more English.
+[2026-03-31 21:43:23] conversation.
+[2026-03-31 21:43:26] Oh, that's really weird.
+[2026-03-31 21:43:28] back in February 2020, we met.
+[2026-03-31 21:43:30] and go back in February 2020. We made this conversation.
+[2026-03-31 21:43:33] Oh, back in February 2020, we made this conversation.
+[2026-03-31 21:43:34] and millions of you.
+[2026-03-31 21:43:36] I love this and said that it helped you too much.  That's right.
+[2026-03-31 21:43:39] You loved this and said that it helped you too much for self and English
+[2026-03-31 21:43:41] said that it helped you to immerse yourself in English and have a fun time.
+[2026-03-31 21:43:43] So today we're going to be doing something similar.
+[2026-03-31 21:43:45] we'll be talking about.
+[2026-03-31 21:43:48] and awesome!
+[2026-03-31 21:43:50] brain more topics.
+[2026-03-31 21:43:52] And we'll be giving a-
+[2026-03-31 21:43:55] opinions and
+[2026-03-31 21:43:57] stories and I
+[2026-03-31 21:44:00] See ya!
+[2026-03-31 21:44:06] Find this my real time
+[2026-03-31 21:44:08] captioning software with a widget.
+[2026-03-31 21:44:12] What time is it?
+[2026-03-31 21:44:15] It's not a group from the special point of the head.
+[2026-03-31 21:44:17] Let's see how it goes.
+[2026-03-31 21:44:26] You're going to wish for him to find out so that you can't calm it.
+[2026-03-31 21:44:30] You didn't wish for anything that's a dot.  That's true.  Yes.
+[2026-03-31 21:45:20] Hey everybody, today we're in date.
+[2026-03-31 21:45:22] I'm not there video where we're going to get past it.
+[2026-03-31 21:45:27] everybody today, we're making another video where we're going to be practicing your speaking
+[2026-03-31 21:45:30] and conversational skills by having the conversation, you and...
+[2026-03-31 21:45:32] the state of skills by having the conversation.  You and me.
+[2026-03-31 21:45:33] Well, because...
+[2026-03-31 21:46:30] He's whispered
+[2026-03-31 21:46:32] So let's see how it works.
+[2026-03-31 21:46:37] But today or me?
+[2026-03-31 21:46:52] to love this format.
+[2026-03-31 21:46:55] So, let's go home.
+[2026-03-31 21:47:10] I'll write in you.
+[2026-03-31 21:48:51] I've been as a dark cloud and I'm dead
+[2026-03-31 21:48:53] who is also going to be giving another perspective to me.
+[2026-03-31 21:48:55] as conversation.
+[2026-03-31 21:48:57] Amazing!
+[2026-03-31 21:48:59] See you next time!
+[2026-03-31 21:49:01] long English conversation.
+[2026-03-31 21:49:03] So prepare your ears.
+[2026-03-31 21:49:05] Prepare your mind.
+[2026-03-31 21:49:07] we're gonna be talking about
+[2026-03-31 21:49:09] different topics.
+[2026-03-31 21:49:11] and hopefully provide a sub.
+[2026-03-31 21:49:13] No questions, no ways to think of it.
+[2026-03-31 21:49:15] I'm going to the house.
+[2026-03-31 21:49:18] I don't know about that, but at least so many.
+[2026-03-31 21:49:20] Let's go!
+[2026-03-31 21:49:22] It's going to get worse.
+[2026-03-31 21:49:30] Alright, are you ready to get started?  Ready, let's go!
+[2026-03-31 21:49:34] I'm gonna more like my dad.
+[2026-03-31 21:49:39] Yeah, I say you have
+[2026-03-31 21:49:43] You have the shades of your dad.  Are you so well, too?
+[2026-03-31 21:49:45] I have shades of your dad.
+[2026-03-31 21:49:47] That's it.
+[2026-03-31 21:49:50] more silly than my-
+[2026-03-31 21:49:53] That's not very hard because...
+[2026-03-31 21:50:16] In the last one kill us.
+[2026-03-31 21:50:18] That's the best I've ever had in my life.
+[2026-03-31 21:52:41] Adapted from the color
+[2026-03-31 21:52:44] of animals by search.
+[2026-03-31 21:52:46] on love book.
+[2026-03-31 21:52:49] A book of Natural History 90
+[2026-03-31 21:52:51] 0 2
+[2026-03-31 21:52:53] e.d. David Stark
+[2026-03-31 21:52:55] are Jordan?
+[2026-03-31 21:52:56] The color of any moves is fine.
+[2026-03-31 21:52:59] No means.
+[2026-03-31 21:53:00] A matter of chance.
+[2026-03-31 21:53:02] Thanks.
+[2026-03-31 21:53:04] Det er det bans om man ikke kan sætte.
+[2026-03-31 21:53:06] generations.
+[2026-03-31 21:53:08] But in the majority of cases
+[2026-03-31 21:53:10] as it tends.
+[2026-03-31 21:53:12] to protect the annual from danger.
+[2026-03-31 21:53:14] rendering its list.
+[2026-03-31 21:53:15] quad-spake ears.
+[2026-03-31 21:53:18] perhaps it may be said that if coloring is mainly...
+[2026-03-31 21:53:20] protective they are ought to be.
+[2026-03-31 21:53:22] few brightly colored animals.
+[2026-03-31 21:53:25] There are however, not a few.
+[2026-03-31 21:53:27] cases in which
+[2026-03-31 21:53:29] Be with colors.
+[2026-03-31 21:53:31] or themselves protected.
+[2026-03-31 21:53:32] The King Fischer
+[2026-03-31 21:53:35] self.
+[2026-03-31 21:53:36] Thought so brightly colored is by no means
+[2026-03-31 21:53:40] Easy to see.
+[2026-03-31 21:53:41] The blue harmonies
+[2026-03-31 21:53:45] with the water and the bird
+[2026-03-31 21:53:47] as it darts along the street.
+[2026-03-31 21:53:49] as it dart along the sheem looks almost like a flash of sunlight.
+[2026-03-31 21:53:50] That's what tiny moves are.
+[2026-03-31 21:53:53] generally the color of the desert.
+[2026-03-31 21:53:55] for instance the lion that antelope.
+[2026-03-31 21:53:58] and the wild junkie.
+[2026-03-31 21:54:00] are all sand colored.
+[2026-03-31 21:54:03] Indeed, it says Canon Tristom.
+[2026-03-31 21:54:05] in the desert where need
+[2026-03-31 21:54:07] The trees brush wood are...
+[2026-03-31 21:54:09] where neither trees, brushwood, or even undulation of the surface.
+[2026-03-31 21:54:12] where neither trees, brush wood or even undulation of the surface.
+[2026-03-31 21:54:13] or for the slightest.
+[2026-03-31 21:54:15] protection to the force.
+[2026-03-31 21:54:17] A medication of cut.
+[2026-03-31 21:54:19] Submarine them.
+[2026-03-31 21:54:21] to that of the surrounding country.
+[2026-03-31 21:54:23] is absolutely necessary.
+[2026-03-31 21:54:28] Hence without X.
+[2026-03-31 21:54:30] section the upper plumage of it.
+[2026-03-31 21:54:32] Happy Bird!
+[2026-03-31 21:54:35] and also the far of all.
+[2026-03-31 21:54:37] All smaller mammals in the skin of all
+[2026-03-31 21:54:39] also the fur of all smaller mammals and the skin of all snakes and lizards.
+[2026-03-31 21:54:44] is of one uniform scent.
+[2026-03-31 21:54:54] The main argument me
+[2026-03-31 21:54:56] Thanks for watching, and I'll see you in the next video.
+[2026-03-31 21:54:58] In this excerpt
+[2026-03-31 21:55:00] Is that the coloring of animals is not coincident?
+[2026-03-31 21:55:02] show.
+[2026-03-31 21:55:04] And that every animal is a...
+[2026-03-31 21:55:06] a particular colour for
+[2026-03-31 21:55:09] And that every animal is a particular color for releasing.
+[2026-03-31 21:55:12] The coloring matches with the...
+[2026-03-31 21:55:15] Environment
+[2026-03-31 21:55:22] Saya akan beri seorang.
+[2026-03-31 21:55:25] I'm going to the street.
+[2026-03-31 21:55:27] See you tomorrow.
+[2026-03-31 21:55:29] I'm writing some
+[2026-03-31 21:55:31] My real time caption
+[2026-03-31 21:55:33] and a soft clothing like we did.
+[2026-03-31 21:55:36] I'm writing some of my real time captioning software that I created using.
+[2026-03-31 21:55:37] Time to model from this.
+[2026-03-31 21:55:41] 可以走進去嗎?
+[2026-03-31 21:55:43] Our time is around.
+[2026-03-31 21:55:45] is I'm super accurate but it has good
+[2026-03-31 21:55:47] Um, latency numbers.
+[2026-03-31 21:58:11] The main argument
+[2026-03-31 21:58:14] made in this excerpt is that
+[2026-03-31 21:58:16] and the colouring
+[2026-03-31 21:58:18] in this excerpt is that the coloring of animals is not coincidental.
+[2026-03-31 21:58:20] This excerpt is that the colouring of animals is not coincidental.
+[2026-03-31 21:58:22] and that every animal
+[2026-03-31 21:58:24] is a particular color for a vision. Either the color
+[2026-03-31 21:58:26] is a particular color for a reason. Either the coloring matches with the environment to off.
+[2026-03-31 21:58:28] either the coloring matches with the environment to offer the any more some protection.
+[2026-03-31 21:58:31] Or else, it's somehow support.
+[2026-03-31 21:58:33] the animals behavioural pet.
+[2026-03-31 21:58:35] it somehow supports the animals behavioural patterns.  The idea is musk.
+[2026-03-31 21:58:37] clearly stated by the author in the video.
+[2026-03-31 21:58:40] The idea is most clearly stated by the author in the opening sentence where he says,
+[2026-03-31 21:58:43] The color of animals is...
+[2026-03-31 21:58:45] no
+[2026-03-31 21:58:47] by no means a matter.
+[2026-03-31 21:58:49] chance it depends on many consideration.

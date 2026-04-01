@@ -41,7 +41,7 @@ audio_queue = queue.Queue()
 
 # Rolling ring buffer — stores (chunk_array, wall_clock_time) tuples
 # Wall clock time is used to track absolute position across cycles
-RING_BUFFER_SECONDS = 30
+RING_BUFFER_SECONDS = 8
 ring_buffer = collections.deque(
     maxlen=int(RING_BUFFER_SECONDS / CHUNK_DURATION)
 )

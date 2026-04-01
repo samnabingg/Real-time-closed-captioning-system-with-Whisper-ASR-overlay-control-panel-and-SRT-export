@@ -1,5 +1,22 @@
-openai-whisper
-sounddevice
-numpy
-scipy
-torch
+# Core audio + processing
+sounddevice==0.5.5
+numpy==2.4.4
+scipy==1.17.1
+
+# Whisper (two variants used in your code)
+openai-whisper==20250625
+faster-whisper==1.2.1
+
+# VAD (voice activity detection)
+silero-vad==6.2.1
+
+# Torch stack (VERY IMPORTANT: keep versions aligned)
+torch==2.11.0
+torchaudio==2.11.0
+
+# Faster-whisper dependencies (explicit for stability)
+ctranslate2==4.7.1
+onnxruntime==1.24.4
+av==17.0.0
+tokenizers==0.22.2
+huggingface-hub==1.8.0
