@@ -76,6 +76,15 @@ def main():
 
     print("\nSession ended.")
 
+def on_close():
+    control_panel.is_running = False
+    # Save accuracy report if eval was used
+    session = getattr(control_panel, "_accuracy_session", None)
+    if session and session.takes:
+        session.save_report()
+    caption_display.shutdown()
+    control_panel.root.destroy()
+
 
 if __name__ == "__main__":
     main()

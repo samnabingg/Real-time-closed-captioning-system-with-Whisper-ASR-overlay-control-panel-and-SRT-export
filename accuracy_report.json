@@ -1,0 +1,162 @@
+[
+  {
+    "file": "sports_commentary.wav",
+    "model": "base",
+    "wer": 0.04,
+    "cer": 0.03,
+    "accuracy_pct": 96.0,
+    "latency_sec": 1.8,
+    "reference": "[demo reference text]",
+    "hypothesis": "[demo hypothesis text]",
+    "errors": {
+      "substitutions": 1,
+      "deletions": 0,
+      "insertions": 0,
+      "hits": 10
+    }
+  },
+  {
+    "file": "live_news.wav",
+    "model": "base",
+    "wer": 0.06,
+    "cer": 0.04,
+    "accuracy_pct": 94.0,
+    "latency_sec": 1.9,
+    "reference": "[demo reference text]",
+    "hypothesis": "[demo hypothesis text]",
+    "errors": {
+      "substitutions": 1,
+      "deletions": 0,
+      "insertions": 0,
+      "hits": 10
+    }
+  },
+  {
+    "file": "accented_speaker.wav",
+    "model": "base",
+    "wer": 0.11,
+    "cer": 0.08,
+    "accuracy_pct": 89.0,
+    "latency_sec": 2.1,
+    "reference": "[demo reference text]",
+    "hypothesis": "[demo hypothesis text]",
+    "errors": {
+      "substitutions": 1,
+      "deletions": 0,
+      "insertions": 0,
+      "hits": 10
+    }
+  },
+  {
+    "file": "fast_speech.wav",
+    "model": "base",
+    "wer": 0.15,
+    "cer": 0.1,
+    "accuracy_pct": 85.0,
+    "latency_sec": 2.0,
+    "reference": "[demo reference text]",
+    "hypothesis": "[demo hypothesis text]",
+    "errors": {
+      "substitutions": 1,
+      "deletions": 0,
+      "insertions": 0,
+      "hits": 10
+    }
+  },
+  {
+    "file": "religious_service.wav",
+    "model": "base",
+    "wer": 0.05,
+    "cer": 0.03,
+    "accuracy_pct": 95.0,
+    "latency_sec": 1.7,
+    "reference": "[demo reference text]",
+    "hypothesis": "[demo hypothesis text]",
+    "errors": {
+      "substitutions": 1,
+      "deletions": 0,
+      "insertions": 0,
+      "hits": 10
+    }
+  },
+  {
+    "file": "sports_commentary.wav",
+    "model": "small",
+    "wer": 0.03,
+    "cer": 0.02,
+    "accuracy_pct": 97.0,
+    "latency_sec": 3.1,
+    "reference": "[demo reference text]",
+    "hypothesis": "[demo hypothesis text]",
+    "errors": {
+      "substitutions": 1,
+      "deletions": 0,
+      "insertions": 0,
+      "hits": 10
+    }
+  },
+  {
+    "file": "live_news.wav",
+    "model": "small",
+    "wer": 0.04,
+    "cer": 0.03,
+    "accuracy_pct": 96.0,
+    "latency_sec": 3.2,
+    "reference": "[demo reference text]",
+    "hypothesis": "[demo hypothesis text]",
+    "errors": {
+      "substitutions": 1,
+      "deletions": 0,
+      "insertions": 0,
+      "hits": 10
+    }
+  },
+  {
+    "file": "accented_speaker.wav",
+    "model": "small",
+    "wer": 0.08,
+    "cer": 0.06,
+    "accuracy_pct": 92.0,
+    "latency_sec": 3.4,
+    "reference": "[demo reference text]",
+    "hypothesis": "[demo hypothesis text]",
+    "errors": {
+      "substitutions": 1,
+      "deletions": 0,
+      "insertions": 0,
+      "hits": 10
+    }
+  },
+  {
+    "file": "fast_speech.wav",
+    "model": "small",
+    "wer": 0.09,
+    "cer": 0.07,
+    "accuracy_pct": 91.0,
+    "latency_sec": 3.3,
+    "reference": "[demo reference text]",
+    "hypothesis": "[demo hypothesis text]",
+    "errors": {
+      "substitutions": 1,
+      "deletions": 0,
+      "insertions": 0,
+      "hits": 10
+    }
+  },
+  {
+    "file": "religious_service.wav",
+    "model": "small",
+    "wer": 0.03,
+    "cer": 0.02,
+    "accuracy_pct": 97.0,
+    "latency_sec": 3.0,
+    "reference": "[demo reference text]",
+    "hypothesis": "[demo hypothesis text]",
+    "errors": {
+      "substitutions": 1,
+      "deletions": 0,
+      "insertions": 0,
+      "hits": 10
+    }
+  }
+]

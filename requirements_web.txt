@@ -1,0 +1,10 @@
+# VoyaVox Web — requirements
+# pip install -r requirements_web.txt
+
+openai-whisper
+torch
+numpy
+scipy
+fastapi
+uvicorn[standard]
+python-multipart

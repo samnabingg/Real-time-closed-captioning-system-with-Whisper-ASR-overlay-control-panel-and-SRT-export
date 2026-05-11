@@ -50,7 +50,8 @@ class ControlPanel:
     SUCCESS_COLOR = "#4CAF50"
     DANGER_COLOR  = "#F44336"
     PANEL_WIDTH   = 320
-    PANEL_HEIGHT  = 420
+    PANEL_HEIGHT  = 580
+    
 
     def __init__(self):
         self.root = tk.Tk()
@@ -247,6 +248,85 @@ class ControlPanel:
                  font=("Arial", 10, "bold"), fg=self.TEXT_COLOR,
                  bg=self.BG_COLOR).grid(row=2, column=1, sticky="w")
 
+        # --- Accuracy eval reference textbox ---
+        eval_frame = tk.Frame(self.root, bg=self.BG_COLOR)
+        eval_frame.pack(fill="x", padx=16, pady=(10, 6))
+
+        tk.Label(eval_frame, text="Accuracy Eval Reference",
+                 font=("Arial", 9), fg=self.SUBTLE_COLOR,
+                 bg=self.BG_COLOR).pack(anchor="w")
+
+        self.eval_enabled = tk.BooleanVar(value=False)
+        tk.Checkbutton(
+            eval_frame,
+            text="Enable",
+            variable=self.eval_enabled,
+            font=("Arial", 10),
+            fg=self.TEXT_COLOR,
+            bg=self.BG_COLOR,
+            selectcolor=self.BG_COLOR,
+            activebackground=self.BG_COLOR,
+            activeforeground=self.TEXT_COLOR,
+            cursor="hand2",
+        ).pack(anchor="w", pady=(6, 0))
+
+        self.reference_text_var = tk.StringVar(value="")
+        reference_entry = tk.Entry(
+            eval_frame,
+            textvariable=self.reference_text_var,
+            font=("Arial", 10),
+            bg="#2D2D2D",
+            fg=self.TEXT_COLOR,
+            insertbackground=self.TEXT_COLOR,
+        )
+        reference_entry.pack(fill="x", pady=(6, 6))
+
+        # Buttons: submit reference for next caption, and clear
+        btn2 = tk.Frame(eval_frame, bg=self.BG_COLOR)
+        btn2.pack(fill="x")
+
+        self.submit_reference_btn = tk.Button(
+            btn2,
+            text="Submit for next",
+            command=self._submit_reference,
+            font=("Arial", 10, "bold"),
+            fg=self.TEXT_COLOR,
+            bg="#444444",
+            activebackground="#555555",
+            activeforeground=self.TEXT_COLOR,
+            relief="flat",
+            cursor="hand2",
+        )
+        self.submit_reference_btn.pack(side="left", padx=(0, 8), pady=(0, 4))
+
+        self.clear_reference_btn = tk.Button(
+            btn2,
+            text="Clear",
+            command=self._clear_reference,
+            font=("Arial", 10),
+            fg=self.TEXT_COLOR,
+            bg="#444444",
+            activebackground="#555555",
+            activeforeground=self.TEXT_COLOR,
+            relief="flat",
+            cursor="hand2",
+            width=8,
+        )
+        self.clear_reference_btn.pack(side="left", pady=(0, 4))
+
+        # Holds a queued reference for worker to consume
+        self._queued_reference: str | None = None
+        self.eval_last_result_var = tk.StringVar(value="")
+        tk.Label(
+            eval_frame,
+            textvariable=self.eval_last_result_var,
+            font=("Arial", 9),
+            fg="#AAAAAA",
+            bg=self.BG_COLOR,
+            wraplength=self.PANEL_WIDTH - 32,
+            justify="left",
+        ).pack(anchor="w", pady=(4, 0))
+
         # --- Footer ---
         tk.Label(
             self.root,
@@ -255,6 +335,7 @@ class ControlPanel:
             fg="#444444",
             bg=self.BG_COLOR,
         ).pack(side="bottom", pady=8)
+
 
     # ------------------------------------------------------------------
     # Control actions
@@ -309,9 +390,31 @@ class ControlPanel:
                 self.selected_language = code
                 break
 
+    def _submit_reference(self):
+        """Queue the current textbox value for the worker to consume next caption."""
+        if not self.eval_enabled.get():
+            return
+        self._queued_reference = self.reference_text_var.get().strip() or None
+        if self._queued_reference:
+            self.eval_last_result_var.set("Reference queued ✅")
+        else:
+            self.eval_last_result_var.set("Reference is empty — ignored")
+
+    def _clear_reference(self):
+        self.reference_text_var.set("")
+        self._queued_reference = None
+        self.eval_last_result_var.set("")
+
+    def consume_queued_reference(self) -> str | None:
+        """Called by whisper_worker; consumes the queued reference once."""
+        ref = self._queued_reference
+        self._queued_reference = None
+        return ref
+
     # ------------------------------------------------------------------
     # Public API — called from whisper_worker
     # ------------------------------------------------------------------
+
 
     def increment_caption_count(self, detected_lang: str = None):
         """Call this each time a valid caption is produced."""

@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Samana Whisperer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ── Reset & root ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg0:        #FFF5F9;
+  --bg1:        #FFFFFF;
+  --bg2:        #FEF0F5;
+  --bg3:        #FADADD;
+  --panel:      #FFF8FB;
+  --border:     #F0C8DC;
+  --rose:       #C94B7A;
+  --rose-dim:   #E8A0BF;
+  --rose-glow:  rgba(201,75,122,.12);
+  --rose-light: #FADADD;
+  --coral:      #E87D5C;
+  --red:        #D94040;
+  --mauve:      #9B5E7A;
+  --text:       #3A1A2A;
+  --text-dim:   #A07890;
+  --text-bright:#1E0A18;
+  --mono:       'DM Mono', monospace;
+  --display:    'Nunito', sans-serif;
+  --caption-font:'Nunito', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg0);
+  color: var(--text);
+  font-family: var(--display);
+  overflow: hidden;
+}
+
+/* Subtle dot texture */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(201,75,122,.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ── Layout ────────────────────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-rows: 56px 1fr 180px;
+  grid-template-columns: 1fr 280px;
+  height: 100vh;
+  gap: 0;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────── */
+header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 12px rgba(201,75,122,.07);
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.logo-name {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  color: var(--rose);
+  line-height: 1;
+}
+.logo-sub {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.conn-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: .5px;
+  background: var(--bg2);
+  transition: all .3s;
+}
+.conn-badge.connected {
+  border-color: var(--rose-dim);
+  color: var(--rose);
+  background: var(--rose-light);
+}
+.conn-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all .3s;
+}
+.conn-badge.connected .conn-dot {
+  background: var(--rose);
+  box-shadow: 0 0 6px var(--rose);
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+
+/* ── Main area ──────────────────────────────────────────────────────── */
+.main {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 16px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* Waveform */
+.waveform-wrap {
+  position: relative;
+  background: var(--bg1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  height: 90px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(201,75,122,.06);
+}
+.waveform-label {
+  position: absolute;
+  top: 10px; left: 14px;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  z-index: 2;
+  font-weight: 400;
+}
+#waveform {
+  width: 100%; height: 100%;
+  display: block;
+}
+
+/* Transcript scroll area */
+.transcript-wrap {
+  flex: 1;
+  background: var(--bg1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow-y: auto;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 2px 12px rgba(201,75,122,.06);
+}
+.transcript-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg1);
+  font-weight: 400;
+}
+.transcript-empty {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--rose-dim);
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+  font-weight: 300;
+}
+.caption-entry {
+  display: grid;
+  grid-template-columns: 60px 1fr 50px;
+  gap: 10px;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(240,200,220,.4);
+  animation: slide-in .25s ease;
+}
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.entry-time {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+.entry-text {
+  font-family: var(--display);
+  font-size: 13px;
+  color: var(--text-bright);
+  line-height: 1.5;
+  font-weight: 500;
+}
+.entry-lat {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--rose-dim);
+  text-align: right;
+  font-weight: 300;
+}
+
+/* ── Side panel ────────────────────────────────────────────────────── */
+.side {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border-left: 1px solid var(--border);
+  padding: 20px 18px;
+  gap: 20px;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.panel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.panel-title {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 400;
+}
+
+/* Start/Stop button */
+.btn-main {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all .2s;
+  background: var(--rose);
+  color: #fff;
+  box-shadow: 0 4px 16px var(--rose-glow);
+}
+.btn-main:hover {
+  background: #B8426C;
+  box-shadow: 0 6px 22px rgba(201,75,122,.28);
+  transform: translateY(-1px);
+}
+.btn-main.recording {
+  background: linear-gradient(135deg, #D94040, #E87D5C);
+  box-shadow: 0 4px 16px rgba(217,64,64,.22);
+}
+.btn-main.recording:hover {
+  box-shadow: 0 6px 22px rgba(217,64,64,.35);
+}
+.btn-main:disabled {
+  background: var(--border);
+  color: var(--text-dim);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Status */
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  padding: 8px 12px;
+  background: var(--bg1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-height: 34px;
+  font-weight: 300;
+}
+.status-indicator {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--border);
+  flex-shrink: 0;
+  transition: all .3s;
+}
+.status-indicator.active {
+  background: var(--rose);
+  box-shadow: 0 0 7px var(--rose);
+}
+.status-indicator.busy {
+  background: var(--coral);
+  box-shadow: 0 0 7px var(--coral);
+  animation: pulse-dot .7s infinite;
+}
+
+/* Language selector */
+.select-wrap {
+  position: relative;
+}
+select {
+  width: 100%;
+  padding: 9px 14px;
+  background: var(--bg1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+select:focus {
+  border-color: var(--rose-dim);
+  box-shadow: 0 0 0 3px rgba(201,75,122,.08);
+}
+.select-arrow {
+  position: absolute;
+  right: 12px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--rose-dim);
+  pointer-events: none;
+  font-size: 12px;
+}
+
+/* Stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.stat-box {
+  background: var(--bg1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 10px 8px;
+  box-shadow: 0 1px 6px rgba(201,75,122,.05);
+}
+.stat-value {
+  font-family: var(--mono);
+  font-size: 20px;
+  color: var(--text-bright);
+  line-height: 1;
+  font-weight: 500;
+}
+.stat-value.green { color: var(--rose); }
+.stat-value.amber { color: var(--mauve); }
+.stat-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  font-weight: 300;
+}
+
+/* SRT download */
+.btn-srt {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .5px;
+  cursor: pointer;
+  transition: all .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 400;
+}
+.btn-srt:hover:not(:disabled) {
+  border-color: var(--rose-dim);
+  border-style: solid;
+  color: var(--rose);
+  background: var(--rose-light);
+}
+.btn-srt:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+/* ── Caption display bar ────────────────────────────────────────────── */
+.caption-bar {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  background: #2D1A26;
+  border-top: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.caption-bar::before {
+  content: 'CC';
+  position: absolute;
+  left: 14px; top: 10px;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: rgba(255,255,255,.25);
+  letter-spacing: 1px;
+  border: 1px solid rgba(255,255,255,.15);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+.caption-text {
+  font-family: 'Lora', serif;
+  font-size: clamp(18px, 2.5vw, 28px);
+  color: #fff;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 100%;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .35s, transform .35s;
+  font-weight: 400;
+}
+.caption-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* latency badge in caption bar */
+.caption-meta {
+  position: absolute;
+  right: 14px; bottom: 10px;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: rgba(255,255,255,.25);
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+/* scrollbar */
+.transcript-wrap::-webkit-scrollbar { width: 4px; }
+.transcript-wrap::-webkit-scrollbar-track { background: transparent; }
+.transcript-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+</style>
+</head>
+
+<body>
+<div class="layout">
+
+  <!-- ── Header ──────────────────────────────────────────────────────── -->
+  <header>
+    <div class="logo">
+      <span class="logo-name">The Samana Whisperer ✨</span>
+      <span class="logo-sub">she hears everything™</span>
+    </div>
+    <div class="header-right">
+      <div class="conn-badge" id="connBadge">
+        <div class="conn-dot"></div>
+        <span id="connLabel">DISCONNECTED</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Main (waveform + transcript) ───────────────────────────────── -->
+  <main class="main">
+    <!-- Waveform -->
+    <div class="waveform-wrap">
+      <span class="waveform-label">Audio Input  ▸  16kHz</span>
+      <canvas id="waveform"></canvas>
+    </div>
+
+    <!-- Transcript scroll -->
+    <div class="transcript-wrap" id="transcript">
+      <div class="transcript-label">Transcript</div>
+      <div class="transcript-empty" id="emptyMsg">Waiting for audio…</div>
+    </div>
+  </main>
+
+  <!-- ── Side panel ──────────────────────────────────────────────────── -->
+  <aside class="side">
+
+    <!-- Control -->
+    <div class="panel-section">
+      <div class="panel-title">Control</div>
+      <button class="btn-main" id="toggleBtn" disabled>START</button>
+      <div class="status-bar" id="statusBar">
+        <div class="status-indicator" id="statusDot"></div>
+        <span id="statusText">Connecting…</span>
+      </div>
+    </div>
+
+    <!-- Language -->
+    <div class="panel-section">
+      <div class="panel-title">Language</div>
+      <div class="select-wrap">
+        <select id="langSelect">
+          <option value="">Auto Detect</option>
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
+          <option value="ar">Arabic</option>
+          <option value="zh">Chinese</option>
+          <option value="ja">Japanese</option>
+          <option value="ko">Korean</option>
+          <option value="pt">Portuguese</option>
+          <option value="ru">Russian</option>
+          <option value="hi">Hindi</option>
+          <option value="it">Italian</option>
+        </select>
+        <span class="select-arrow">▾</span>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="panel-section">
+      <div class="panel-title">Session Stats</div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-value green" id="statCaptions">0</div>
+          <div class="stat-label">Captions</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="statLatency">—</div>
+          <div class="stat-label">Latency (s)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="statDuration">00:00</div>
+          <div class="stat-label">Duration</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value amber" id="statLang">—</div>
+          <div class="stat-label">Detected</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Export -->
+    <div class="panel-section">
+      <div class="panel-title">Export</div>
+      <button class="btn-srt" id="srtBtn" disabled>
+        ↓ &nbsp;Download SRT File
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- ── Caption bar (broadcast-style) ──────────────────────────────── -->
+  <div class="caption-bar">
+    <div class="caption-text" id="captionDisplay"></div>
+    <div class="caption-meta" id="captionMeta"></div>
+  </div>
+
+</div>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────
+// State
+// ─────────────────────────────────────────────────────────────────────
+let ws, audioCtx, analyser, source, processor, micStream;
+let isRecording   = false;
+let captionCount  = 0;
+let sessionStart  = null;
+let clockInterval = null;
+let clearTimer    = null;
+let srtEntries    = [];   // { seq, start, end, text }
+let srtClock      = 0;    // seconds since session start
+
+// ─────────────────────────────────────────────────────────────────────
+// DOM refs
+// ─────────────────────────────────────────────────────────────────────
+const toggleBtn      = document.getElementById('toggleBtn');
+const statusText     = document.getElementById('statusText');
+const statusDot      = document.getElementById('statusDot');
+const statusBar      = document.getElementById('statusBar');
+const connBadge      = document.getElementById('connBadge');
+const connLabel      = document.getElementById('connLabel');
+const captionDisplay = document.getElementById('captionDisplay');
+const captionMeta    = document.getElementById('captionMeta');
+const transcript     = document.getElementById('transcript');
+const emptyMsg       = document.getElementById('emptyMsg');
+const srtBtn         = document.getElementById('srtBtn');
+const langSelect     = document.getElementById('langSelect');
+const statCaptions   = document.getElementById('statCaptions');
+const statLatency    = document.getElementById('statLatency');
+const statDuration   = document.getElementById('statDuration');
+const statLang       = document.getElementById('statLang');
+const waveCanvas     = document.getElementById('waveform');
+const waveCtx        = waveCanvas.getContext('2d');
+
+// ─────────────────────────────────────────────────────────────────────
+// WebSocket
+// ─────────────────────────────────────────────────────────────────────
+function connectWS() {
+  const proto = location.protocol === 'https:' ? 'wss' : 'ws';
+  ws = new WebSocket(`${proto}://${location.host}/ws`);
+  ws.binaryType = 'arraybuffer';
+
+  ws.onopen = () => {
+    connBadge.classList.add('connected');
+    connLabel.textContent = 'CONNECTED';
+    setStatus('idle', 'Ready');
+    toggleBtn.disabled = false;
+  };
+
+  ws.onclose = () => {
+    connBadge.classList.remove('connected');
+    connLabel.textContent = 'DISCONNECTED';
+    setStatus('idle', 'Server disconnected — reload to reconnect');
+    toggleBtn.disabled = true;
+    setTimeout(connectWS, 3000);
+  };
+
+  ws.onerror = () => {};
+
+  ws.onmessage = (e) => {
+    if (typeof e.data !== 'string') return;
+    const msg = JSON.parse(e.data);
+
+    if (msg.type === 'ready') {
+      setStatus('active', 'Listening…');
+    } else if (msg.type === 'status') {
+      const busy = msg.text.toLowerCase().includes('transcrib');
+      setStatus(busy ? 'busy' : 'active', msg.text);
+    } else if (msg.type === 'caption') {
+      handleCaption(msg);
+    }
+  };
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// Audio capture
+// ─────────────────────────────────────────────────────────────────────
+async function startAudio() {
+  micStream = await navigator.mediaDevices.getUserMedia({
+    audio: { echoCancellation: true, noiseSuppression: true }
+  });
+
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  const sr  = audioCtx.sampleRate;
+
+  analyser                        = audioCtx.createAnalyser();
+  analyser.fftSize                = 512;
+  analyser.smoothingTimeConstant  = 0.8;
+
+  source = audioCtx.createMediaStreamSource(micStream);
+
+  // ScriptProcessorNode only accepts: 256,512,1024,2048,4096,8192,16384
+  // We use 4096 and accumulate chunks until we have ~1 second of audio.
+  const BUF_SIZE = 4096;
+  processor = audioCtx.createScriptProcessor(BUF_SIZE, 1, 1);
+
+  // Muted gain node — processor must be connected to destination to fire,
+  // but we don't want to play the mic back through the speakers.
+  const silentGain = audioCtx.createGain();
+  silentGain.gain.value = 0;
+
+  source.connect(analyser);
+  source.connect(processor);
+  processor.connect(silentGain);
+  silentGain.connect(audioCtx.destination);
+
+  // Tell server the sample rate once
+  ws.send(JSON.stringify({
+    type: 'hello',
+    sampleRate: sr,
+    language: langSelect.value || null
+  }));
+
+  // Accumulate chunks until we have ~1 second, then send as one binary message
+  let accum       = [];
+  let accumSamples = 0;
+  const TARGET    = sr; // 1 second worth of samples
+
+  processor.onaudioprocess = (ev) => {
+    if (!isRecording || !ws || ws.readyState !== WebSocket.OPEN) return;
+    const chunk = new Float32Array(ev.inputBuffer.getChannelData(0));
+    accum.push(chunk);
+    accumSamples += chunk.length;
+
+    if (accumSamples >= TARGET) {
+      // Flatten and send as binary Float32
+      const out = new Float32Array(accumSamples);
+      let offset = 0;
+      for (const c of accum) { out.set(c, offset); offset += c.length; }
+      ws.send(out.buffer);
+      accum        = [];
+      accumSamples = 0;
+    }
+  };
+
+  drawWaveform();
+}
+
+function stopAudio() {
+  if (processor) { processor.disconnect(); processor = null; }
+  if (source)    { source.disconnect();    source    = null; }
+  if (micStream) { micStream.getTracks().forEach(t => t.stop()); micStream = null; }
+  if (audioCtx)  { audioCtx.close();       audioCtx  = null; }
+  analyser = null;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// Start / Stop toggle
+// ─────────────────────────────────────────────────────────────────────
+toggleBtn.addEventListener('click', async () => {
+  if (!isRecording) {
+    try {
+      toggleBtn.disabled = true;
+      await startAudio();
+      isRecording   = true;
+      sessionStart  = Date.now();
+      srtEntries    = [];
+      srtClock      = 0;
+      captionCount  = 0;
+      statCaptions.textContent = '0';
+      statLatency.textContent  = '—';
+      statLang.textContent     = '—';
+      toggleBtn.textContent    = 'STOP';
+      toggleBtn.classList.add('recording');
+      toggleBtn.disabled       = false;
+      srtBtn.disabled          = true;
+
+      clockInterval = setInterval(updateClock, 1000);
+    } catch (err) {
+      setStatus('idle', 'Mic access denied — check browser permissions');
+      toggleBtn.disabled = false;
+    }
+  } else {
+    stopRecording();
+  }
+});
+
+function stopRecording() {
+  isRecording = false;
+  stopAudio();
+  if (ws && ws.readyState === WebSocket.OPEN) {
+    ws.send(JSON.stringify({ type: 'stop' }));
+  }
+  clearInterval(clockInterval);
+  toggleBtn.textContent = 'START';
+  toggleBtn.classList.remove('recording');
+  setStatus('idle', 'Stopped');
+  if (srtEntries.length > 0) srtBtn.disabled = false;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// Language change
+// ─────────────────────────────────────────────────────────────────────
+langSelect.addEventListener('change', () => {
+  if (ws && ws.readyState === WebSocket.OPEN) {
+    ws.send(JSON.stringify({ type: 'language', language: langSelect.value || null }));
+  }
+});
+
+// ─────────────────────────────────────────────────────────────────────
+// Caption handling
+// ─────────────────────────────────────────────────────────────────────
+function handleCaption(msg) {
+  const { text, language, latency } = msg;
+  captionCount++;
+
+  // ── Broadcast caption bar ──
+  if (clearTimer) clearTimeout(clearTimer);
+  captionDisplay.textContent = text;
+  captionDisplay.classList.add('visible');
+  captionMeta.textContent = `${latency}s`;
+  clearTimer = setTimeout(() => {
+    captionDisplay.classList.remove('visible');
+    setTimeout(() => { captionDisplay.textContent = ''; }, 400);
+  }, 6000);
+
+  // ── Transcript log ──
+  if (emptyMsg) { emptyMsg.remove(); }
+  const now = new Date();
+  const ts  = now.toTimeString().slice(0,8);
+  const entry = document.createElement('div');
+  entry.className = 'caption-entry';
+  entry.innerHTML = `
+    <span class="entry-time">${ts}</span>
+    <span class="entry-text">${escHtml(text)}</span>
+    <span class="entry-lat">${latency}s</span>
+  `;
+  transcript.appendChild(entry);
+  transcript.scrollTop = transcript.scrollHeight;
+
+  // ── Stats ──
+  statCaptions.textContent = captionCount;
+  statLatency.textContent  = latency;
+  if (language) statLang.textContent = language.toUpperCase();
+
+  // ── SRT entry ──
+  const elapsed = (Date.now() - sessionStart) / 1000;
+  const end     = elapsed;
+  const start   = Math.max(0, end - latency - 5);
+  srtEntries.push({ seq: captionCount, start, end, text });
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// Waveform
+// ─────────────────────────────────────────────────────────────────────
+function drawWaveform() {
+  requestAnimationFrame(drawWaveform);
+
+  const W = waveCanvas.clientWidth;
+  const H = waveCanvas.clientHeight;
+  if (waveCanvas.width !== W || waveCanvas.height !== H) {
+    waveCanvas.width  = W;
+    waveCanvas.height = H;
+  }
+
+  waveCtx.clearRect(0, 0, W, H);
+
+  if (!analyser || !isRecording) {
+    // Draw idle flat line
+    waveCtx.strokeStyle = '#1A2D40';
+    waveCtx.lineWidth   = 1;
+    waveCtx.beginPath();
+    waveCtx.moveTo(0, H / 2);
+    waveCtx.lineTo(W, H / 2);
+    waveCtx.stroke();
+    return;
+  }
+
+  const data    = new Uint8Array(analyser.frequencyBinCount);
+  analyser.getByteFrequencyData(data);
+
+  const bars    = 80;
+  const step    = Math.floor(data.length / bars);
+  const barW    = W / bars;
+  const centerY = H / 2;
+
+  for (let i = 0; i < bars; i++) {
+    const val = data[i * step] / 255;
+    const h   = val * H * 0.8;
+    const x   = i * barW;
+    const alpha = 0.3 + val * 0.7;
+
+    // Rosy pink bars, mirrored
+    waveCtx.fillStyle = `rgba(201,75,122,${alpha})`;
+    waveCtx.fillRect(x + 1, centerY - h / 2, barW - 2, h);
+
+    // Soft glow on tall bars
+    if (val > 0.55) {
+      waveCtx.shadowColor = 'rgba(201,75,122,0.5)';
+      waveCtx.shadowBlur  = 10;
+      waveCtx.fillRect(x + 1, centerY - h / 2, barW - 2, h);
+      waveCtx.shadowBlur  = 0;
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// SRT download
+// ─────────────────────────────────────────────────────────────────────
+srtBtn.addEventListener('click', () => {
+  let out = '';
+  srtEntries.forEach(e => {
+    out += `${e.seq}\n${fmtSRT(e.start)} --> ${fmtSRT(e.end)}\n${e.text}\n\n`;
+  });
+  const blob = new Blob([out], { type: 'text/plain' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = `voyavox_${dateStr()}.srt`;
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+function fmtSRT(sec) {
+  sec = Math.max(0, sec);
+  const ms = Math.floor((sec % 1) * 1000);
+  const s  = Math.floor(sec) % 60;
+  const m  = Math.floor(sec / 60) % 60;
+  const h  = Math.floor(sec / 3600);
+  return `${pad(h)}:${pad(m)}:${pad(s)},${pad(ms, 3)}`;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// Utilities
+// ─────────────────────────────────────────────────────────────────────
+function setStatus(mode, text) {
+  statusText.textContent = text;
+  statusDot.className    = 'status-indicator';
+  if (mode === 'active') statusDot.classList.add('active');
+  if (mode === 'busy')   statusDot.classList.add('busy');
+}
+
+function updateClock() {
+  if (!sessionStart) return;
+  const s = Math.floor((Date.now() - sessionStart) / 1000);
+  const m = Math.floor(s / 60);
+  statDuration.textContent = `${pad(m)}:${pad(s % 60)}`;
+}
+
+function escHtml(t) {
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function pad(n, len = 2) { return String(n).padStart(len, '0'); }
+
+function dateStr() {
+  const d = new Date();
+  return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}_${pad(d.getHours())}${pad(d.getMinutes())}`;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// Boot
+// ─────────────────────────────────────────────────────────────────────
+setStatus('idle', 'Connecting…');
+connectWS();
+drawWaveform(); // idle state
+</script>
+</body>
+</html>
